@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!-- 建立类与表的映射 -->
+    <class name="cn.csdas.yelf.day02.Account" table="account">
+        <!-- 建立类中的属性与表中的主键对应 -->
+        <id name="id" column="id" type="java.lang.Integer">
+            <!--主键生成策略-->
+
+            <!--hibername自动增长管理，存在线程安全问题，不推荐-->
+            <!--<generator class="increment"/>-->
+
+            <!--mssqlserver、mysql主键自动增长方式（id）-->
+            <!--<generator class="identity"/>-->
+
+            <!--oracle主键自动增长方式（序列方式）-->
+            <!--<generator class="sequence"/>-->
+
+            <!--字符串类型主键uuid，使用hibernate随机字符串作为主键-->
+           <!-- <generator class="uuid"/>-->
+
+            <!--hibernate不管理主键，主键管理交由用户自己在数据库设置-->
+            <!--<generator class="assigned"/>-->
+
+            <!--本地策略，hibernate可以在identity和sequence之间自动切换，推荐此用法-->
+            <generator class="native"/>
+        </id>
+        <!-- 建立类中的普通的属性和表的字段的对应 -->
+        <property name="name" column="name" length="20" type="java.lang.String"/>
+        <property name="money" column="money" type="java.lang.Float"/>
+
+    </class>
+</hibernate-mapping>
