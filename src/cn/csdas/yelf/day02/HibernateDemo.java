@@ -1,6 +1,7 @@
 package cn.csdas.yelf.day02;
 
 import cn.csdas.yelf.utils.HibernateUtils;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
@@ -96,5 +97,38 @@ public class HibernateDemo {
         session.close();
 
         //一级缓存快照区：当事物要提交时，一级缓存的数据（持久化对象）与快照区的数据作对比，不一致时自动发送执行update
+    }
+
+    @Test
+    //线程绑定
+    public void demo5(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        Account account = new Account();
+        account.setName("lin");
+        account.setMoney(6666);
+        session.save(account);
+
+        transaction.commit();
+        //线程绑定Session无需关闭，线程结束自动关闭
+    }
+
+    @Test
+    //Query对象测试
+    public void demo6(){
+
+    }
+
+    @Test
+    //Criteria对象测试
+    public void demo7(){
+
+    }
+
+    @Test
+    //SQLQuery对象测试
+    public void demo8(){
+
     }
 }
