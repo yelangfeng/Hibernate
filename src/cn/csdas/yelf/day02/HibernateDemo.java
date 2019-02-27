@@ -1,13 +1,14 @@
 package cn.csdas.yelf.day02;
 
 import cn.csdas.yelf.utils.HibernateUtils;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
 
 import javax.sound.midi.Soundbank;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * hibernate框架测试类
@@ -117,18 +118,82 @@ public class HibernateDemo {
     @Test
     //Query对象测试
     public void demo6(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
 
+        /*
+        //获取全部对象
+        String hql = "from Account";
+        Query query = session.createQuery(hql);
+        */
+        /*
+        //按查询条件获取对象
+        String hql = "from Account where name = ?";
+        Query query = session.createQuery(hql);
+        query.setParameter(0,"xuan");
+        */
+
+        //分页查询
+        String hql = "from Account";
+        Query query = session.createQuery(hql);
+        query.setFirstResult(3);
+        query.setMaxResults(2);
+
+        List<Account> list = query.list();
+        for (Account account : list) {
+            System.out.println(account);
+        }
+
+        transaction.commit();
     }
 
     @Test
     //Criteria对象测试
     public void demo7(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
 
+        /*
+        //获取全部对象
+        Criteria criteria = session.createCriteria(Account.class);
+        List<Account> list = criteria.list();
+        */
+
+        /*
+        //按查询条件获取对象
+        Criteria criteria = session.createCriteria(Account.class);
+        criteria.add(Restrictions.like("name","%y%"));
+        List<Account> list = criteria.list();
+        */
+
+        //分页查询
+        Criteria criteria = session.createCriteria(Account.class);
+        criteria.setFirstResult(2);
+        criteria.setMaxResults(3);
+        List<Account> list = criteria.list();
+
+        for (Account account : list) {
+            System.out.println(account);
+        }
+
+        transaction.commit();
     }
 
     @Test
     //SQLQuery对象测试
     public void demo8(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
 
+        String sql = "select * from account";
+        SQLQuery sqlQuery = session.createSQLQuery(sql);
+        List<Object[]> list = sqlQuery.list();
+
+        for (Object[] o : list) {
+            System.out.println(Arrays.toString(o));
+        }
+
+
+        transaction.commit();
     }
 }
