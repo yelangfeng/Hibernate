@@ -12,7 +12,7 @@ public class LinkMan {
     private String lkm_email;
     private String lkm_qq;
     private String lkm_position;
-    private String lkm_meno;
+    private String lkm_memo;
     //通过ORM方式表示：一个联系人只能属于某一个客户
     //放置的是一的一方的对象
     private Customer customer;
@@ -81,12 +81,12 @@ public class LinkMan {
         this.lkm_position = lkm_position;
     }
 
-    public String getLkm_meno() {
-        return lkm_meno;
+    public String getLkm_memo() {
+        return lkm_memo;
     }
 
-    public void setLkm_meno(String lkm_meno) {
-        this.lkm_meno = lkm_meno;
+    public void setLkm_memo(String lkm_memo) {
+        this.lkm_memo = lkm_memo;
     }
 
     public Customer getCustomer() {

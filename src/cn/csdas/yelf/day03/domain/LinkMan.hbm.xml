@@ -3,5 +3,21 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    
+    <class name="cn.csdas.yelf.day03.domain.LinkMan" table="cst_linkman">
+        <!--??OID?????-->
+        <id name="lkm_id" column="lkm_id">
+            <generator class="native"/>
+        </id>
+        <!--????????????-->
+        <property name="lkm_name"/>
+        <property name="lkm_gender"/>
+        <property name="lkm_phone"/>
+        <property name="lkm_mobile"/>
+        <property name="lkm_email"/>
+        <property name="lkm_qq"/>
+        <property name="lkm_position"/>
+        <property name="lkm_memo"/>
+        <!-- ???????????????????? -->
+
+    </class>
 </hibernate-mapping>
