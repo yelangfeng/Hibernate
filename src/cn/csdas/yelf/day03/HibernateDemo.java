@@ -58,5 +58,6 @@ public class HibernateDemo {
     @Test
     public void demo2(){
 
+
     }
 }
