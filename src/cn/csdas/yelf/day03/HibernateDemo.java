@@ -54,4 +54,9 @@ public class HibernateDemo {
 
         transaction.commit();
     }
+
+    @Test
+    public void demo2(){
+
+    }
 }
