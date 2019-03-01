@@ -21,3 +21,9 @@ CREATE TABLE  cst_linkman  (
    lkm_memo  varchar(512) DEFAULT NULL,
    foreign key(lkm_cust_id) references cst_customer(cust_id)
    )
+
+   create table account(
+   id int identity(1,1,) primary key,
+   name varchar(10),
+   money money
+   )
