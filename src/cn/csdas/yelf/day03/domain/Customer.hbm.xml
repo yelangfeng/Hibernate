@@ -17,6 +17,14 @@
         <property name="cust_phone" column="cust_phone"/>
         <property name="cust_mobile" column="cust_mobile"/>
         <!--配置一对多的映射，放置多的一方的集合 -->
+        <!--set标签: *name：多的一方对象集合的属性名称-->
+        <set name="linkMans">
+            <!--key标签： *column：多的一方的外键的名称-->
+            <key column="lkm_cust_id"/>
+            <!-- one-to-many标签：*class：多的一方的类的全路径 -->
+            <one-to-many class="cn.csdas.yelf.day03.domain.LinkMan"/>
+        </set>
+
 
     </class>
 </hibernate-mapping>
