@@ -29,7 +29,7 @@ public class HibernateDemo {
         customer1.setCust_name("张三");
         customer2.setCust_name("李四");
 
-        //创建3个联系人
+        //创建三个联系人
         LinkMan linkMan1 = new LinkMan();
         LinkMan linkMan2 = new LinkMan();
         LinkMan linkMan3 = new LinkMan();
