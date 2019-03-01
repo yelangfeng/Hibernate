@@ -25,6 +25,5 @@
             <one-to-many class="cn.csdas.yelf.day03.domain.LinkMan"/>
         </set>
 
-
     </class>
 </hibernate-mapping>
