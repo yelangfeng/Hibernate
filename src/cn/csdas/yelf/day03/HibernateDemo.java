@@ -7,9 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * 一对多测试类
  */
