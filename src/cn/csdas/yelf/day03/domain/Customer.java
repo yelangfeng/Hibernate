@@ -1,5 +1,6 @@
 package cn.csdas.yelf.day03.domain;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +8,7 @@ import java.util.Set;
  * 客户
  */
 public class Customer {
-    private Long cust_id;
+    private Integer cust_id;
     private String cust_name;
     private String cust_source;
     private String cust_industry;
@@ -18,11 +19,11 @@ public class Customer {
     //放置多的一方的集合，Hibernate默认使用的是Set集合
     private Set<LinkMan> linkMans = new HashSet<LinkMan>();
 
-    public Long getCust_id() {
+    public Integer getCust_id() {
         return cust_id;
     }
 
-    public void setCust_id(Long cust_id) {
+    public void setCust_id(Integer cust_id) {
         this.cust_id = cust_id;
     }
 

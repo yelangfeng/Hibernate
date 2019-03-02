@@ -1,10 +1,12 @@
 package cn.csdas.yelf.day03.domain;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 /**
  * 联系人
  */
 public class LinkMan {
-    private Long lkm_id;
+    private Integer lkm_id;
     private String lkm_name;
     private String lkm_gender;
     private String lkm_phone;
@@ -17,11 +19,11 @@ public class LinkMan {
     //放置的是一的一方的对象
     private Customer customer;
 
-    public Long getLkm_id() {
+    public Integer getLkm_id() {
         return lkm_id;
     }
 
-    public void setLkm_id(Long lkm_id) {
+    public void setLkm_id(Integer lkm_id) {
         this.lkm_id = lkm_id;
     }
 
