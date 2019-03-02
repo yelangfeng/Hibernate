@@ -56,8 +56,78 @@ public class HibernateDemo {
     }
 
     @Test
+    /*
+     **测试一对多是否可以只保存一边
+     */
     public void demo2(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
 
+        //构建对象
+        Customer customer = new Customer();
+        customer.setCust_name("yexuan");
+        LinkMan linkMan = new LinkMan();
+        linkMan.setLkm_name("xuanye");
 
+        //建立联系
+        customer.getLinkMans().add(linkMan);
+        linkMan.setCustomer(customer);
+
+        // 只保存一边是否可以：不可以，报一个瞬时对象异常：持久态对象关联了一个瞬时态对象。
+        //session.save(customer);
+        session.save(linkMan);
+
+        transaction.commit();
     }
+
+    @Test
+    /**
+    *  级联保存或更新操作：
+    *  * 保存客户级联联系人，操作的主体是客户对象，需要在Customer.hbm.xml中进行配置*  * <set name="linkMans" cascade="save-update">
+     */
+    public void demo3(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        //构建对象
+        Customer customer = new Customer();
+        LinkMan linkMan = new LinkMan();
+
+        customer.setCust_name("lang");
+        linkMan.setLkm_name("xuan");
+
+        //建立联系
+        customer.getLinkMans().add(linkMan);
+        linkMan.setCustomer(customer);
+
+
+        session.save(customer);
+
+        transaction.commit();
+    }
+
+    @Test
+    /**
+     *  级联保存或更新操作：
+     *  * 保存联系人级联客户，操作的主体是联系人对象，需要在Linkman.hbm.xml中进行配置  cascade="save-update"*
+     */
+    public void demo4(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        //构建对象
+        Customer customer = new Customer();
+        customer.setCust_name("lin");
+        LinkMan linkMan = new LinkMan();
+        linkMan.setLkm_name("shi");
+
+        //建立联系
+        customer.getLinkMans().add(linkMan);
+        linkMan.setCustomer(customer);
+
+        session.save(linkMan);
+
+        transaction.commit();
+    }
+
 }
