@@ -238,6 +238,7 @@ public class HibernateDemo {
         customer.setCust_name("林国栋");
         linkMan.setLkm_name("林志文");
         customer.getLinkMans().add(linkMan);
+        //linkMan.setCustomer(customer);增加这个条件，外键也会由Linkman维护
 
         // 条件在Customer.hbm.xml上的set中配置了cascade="save-update" inverse="true"
         session.save(customer);// 客户会插入到数据库，联系人也会插入到数据库，但是外键为null
