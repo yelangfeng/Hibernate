@@ -202,4 +202,46 @@ public class HibernateDemo {
 
         transaction.commit();
     }
+
+    @Test
+    /**
+     * demo1()中的1号联系人原来归1号客户，现在改为2号客户
+     * 引入配置文件inverterse属性，一的一方放弃外键管理，减少语句的重复发送，提高数据库效率
+     */
+    public void demo8(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        // 查询1号客户
+        Customer customer = session.get(Customer.class,2);
+        // 查询1号联系人
+        LinkMan linkMan = session.get(LinkMan.class, 1);
+
+
+        // 双向的关联
+        customer.getLinkMans().add(linkMan);
+        linkMan.setCustomer(customer);
+
+        transaction.commit();
+    }
+
+    @Test
+    /**
+     * 区分cascade和inverse的区别
+     */
+    public void demo9(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        Customer customer = new Customer();
+        LinkMan linkMan = new LinkMan();
+
+        customer.setCust_name("林国栋");
+        linkMan.setLkm_name("林志文");
+        customer.getLinkMans().add(linkMan);
+
+        // 条件在Customer.hbm.xml上的set中配置了cascade="save-update" inverse="true"
+        session.save(customer);// 客户会插入到数据库，联系人也会插入到数据库，但是外键为null
+
+        transaction.commit();
+    }
 }
