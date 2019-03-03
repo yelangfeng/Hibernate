@@ -1,7 +1,7 @@
 package cn.csdas.yelf.day03.demo1;
 
-import cn.csdas.yelf.day03.demo1.domain.Customer;
-import cn.csdas.yelf.day03.demo1.domain.LinkMan;
+import cn.csdas.yelf.day03.domain.Customer;
+import cn.csdas.yelf.day03.domain.LinkMan;
 import cn.csdas.yelf.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

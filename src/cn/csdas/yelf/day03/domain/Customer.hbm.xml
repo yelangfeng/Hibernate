@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="cn.csdas.yelf.day03.demo1.domain.Customer" table="cst_customer">
+    <class name="cn.csdas.yelf.day03.domain.Customer" table="cst_customer">
         <!--建立OID与主键映射-->
         <id name="cust_id" type="java.lang.Integer" column="cust_id">
             <generator class="native"/>
@@ -22,7 +22,7 @@
             <!--key标签： *column：多的一方的外键的名称-->
             <key column="lkm_cust_id"/>
             <!-- one-to-many标签：*class：多的一方的类的全路径 -->
-            <one-to-many class="cn.csdas.yelf.day03.demo1.domain.LinkMan"/>
+            <one-to-many class="cn.csdas.yelf.day03.domain.LinkMan"/>
         </set>
 
     </class>
