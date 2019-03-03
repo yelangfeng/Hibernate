@@ -206,7 +206,7 @@ public class HibernateDemo {
     @Test
     /**
      * demo1()中的1号联系人原来归1号客户，现在改为2号客户
-     * 引入配置文件inverterse属性，一的一方放弃外键管理，减少语句的重复发送，提高数据库效率
+     * 引入配置文件inverse属性，一的一方放弃外键管理，减少语句的重复发送，提高数据库效率
      */
     public void demo8(){
         Session session = HibernateUtils.getCurrentSession();
