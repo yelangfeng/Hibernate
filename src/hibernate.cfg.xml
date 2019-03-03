@@ -44,6 +44,8 @@
         <mapping resource="cn/csdas/yelf/day02/Account.hbm.xml"/>
         <mapping resource="cn/csdas/yelf/day03/domain/Customer.hbm.xml"/>
         <mapping resource="cn/csdas/yelf/day03/domain/LinkMan.hbm.xml"/>
+        <mapping resource="cn/csdas/yelf/day03/domain/User.hbm.xml"/>
+        <mapping resource="cn/csdas/yelf/day03/domain/Role.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

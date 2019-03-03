@@ -37,16 +37,16 @@ create table account(
 
 create table sys_role(
   role_id int identity(1,1) primary key,
-  role_name varchar(32) not null,
+  role_name varchar(32)  null,
   role_memo varchar(128) default null
 )
 
 create table sys_user(
   user_id int identity(1,1) primary key,
-  user_code varchar(32) not null,
-  user_name varchar(64) not null,
-  user_password varchar(32) not null,
-  user_state char(1) not null
+  user_code varchar(32) null,
+  user_name varchar(64) null,
+  user_password varchar(32) null,
+  user_state char(1) null
 )
 
 create table sys_user_role(
