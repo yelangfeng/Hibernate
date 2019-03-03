@@ -1,6 +1,4 @@
-package cn.csdas.yelf.day03.domain;
-
-import javax.persistence.criteria.CriteriaBuilder;
+package cn.csdas.yelf.day03.demo1.domain;
 
 /**
  * 联系人

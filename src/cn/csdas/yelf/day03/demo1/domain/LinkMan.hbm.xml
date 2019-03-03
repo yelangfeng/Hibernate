@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="cn.csdas.yelf.day03.domain.LinkMan" table="cst_linkman">
+    <class name="cn.csdas.yelf.day03.demo1.domain.LinkMan" table="cst_linkman">
         <!--建立OID与主键映射-->
         <id name="lkm_id" column="lkm_id">
             <generator class="native"/>
@@ -25,7 +25,7 @@
           *column  ：在多的一方的表的外键的名称
           * cascade：允许级联操作
         -->
-        <many-to-one name="customer" cascade="save-update,delete" class="cn.csdas.yelf.day03.domain.Customer" column="lkm_cust_id"/>
+        <many-to-one name="customer" cascade="save-update,delete" class="cn.csdas.yelf.day03.demo1.domain.Customer" column="lkm_cust_id"/>
 
     </class>
 </hibernate-mapping>
