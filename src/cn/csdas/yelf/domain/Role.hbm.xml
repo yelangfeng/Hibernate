@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="cn.csdas.yelf.day03.domain.Role" table="sys_role">
+	<class name="cn.csdas.yelf.domain.Role" table="sys_role">
 		<!-- 建立OID与主键的映射 -->
 		<id name="role_id" column="role_id">
 			<generator class="native"/>
@@ -17,7 +17,7 @@
 			<!-- key标签：* column：当前的对象(Role)对应中间表的外键的名称。-->
 			<key column="role_id"/>
 			<!-- many-to-many标签：* class：对方的类的全路径  * column：对方的对象在中间表中的外键的名称。-->
-			<many-to-many class="cn.csdas.yelf.day03.domain.User" column="user_id"/>
+			<many-to-many class="cn.csdas.yelf.domain.User" column="user_id"/>
 		</set>
 	</class>
 </hibernate-mapping>

@@ -42,10 +42,10 @@
         <!--导入映射配置文件-->
         <mapping resource="cn/csdas/yelf/day01/Account.hbm.xml"/>
         <mapping resource="cn/csdas/yelf/day02/Account.hbm.xml"/>
-        <mapping resource="cn/csdas/yelf/day03/domain/Customer.hbm.xml"/>
-        <mapping resource="cn/csdas/yelf/day03/domain/LinkMan.hbm.xml"/>
-        <mapping resource="cn/csdas/yelf/day03/domain/User.hbm.xml"/>
-        <mapping resource="cn/csdas/yelf/day03/domain/Role.hbm.xml"/>
+        <mapping resource="cn/csdas/yelf/domain/Customer.hbm.xml"/>
+        <mapping resource="cn/csdas/yelf/domain/LinkMan.hbm.xml"/>
+        <mapping resource="cn/csdas/yelf/domain/User.hbm.xml"/>
+        <mapping resource="cn/csdas/yelf/domain/Role.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

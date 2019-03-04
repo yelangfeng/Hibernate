@@ -1,4 +1,4 @@
-package cn.csdas.yelf.day03.domain;
+package cn.csdas.yelf.domain;
 
 /**
  * 联系人
@@ -95,5 +95,13 @@ public class LinkMan {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    @Override
+    public String toString() {
+        return "LinkMan{" +
+                "lkm_id=" + lkm_id +
+                ", lkm_name='" + lkm_name + '\'' +
+                '}';
     }
 }

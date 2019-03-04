@@ -1,7 +1,7 @@
 package cn.csdas.yelf.day03.demo2;
 
-import cn.csdas.yelf.day03.domain.Role;
-import cn.csdas.yelf.day03.domain.User;
+import cn.csdas.yelf.domain.Role;
+import cn.csdas.yelf.domain.User;
 import cn.csdas.yelf.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

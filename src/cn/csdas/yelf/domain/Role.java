@@ -1,4 +1,4 @@
-package cn.csdas.yelf.day03.domain;
+package cn.csdas.yelf.domain;
 
 import java.util.HashSet;
 import java.util.Set;

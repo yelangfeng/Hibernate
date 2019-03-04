@@ -1,4 +1,4 @@
-package cn.csdas.yelf.day03.domain;
+package cn.csdas.yelf.domain;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -80,5 +80,13 @@ public class Customer {
 
     public void setLinkMans(Set<LinkMan> linkMans) {
         this.linkMans = linkMans;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "cust_id=" + cust_id +
+                ", cust_name='" + cust_name + '\'' +
+                '}';
     }
 }
