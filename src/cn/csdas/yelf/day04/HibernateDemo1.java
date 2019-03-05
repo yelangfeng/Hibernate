@@ -18,7 +18,7 @@ import java.util.List;
  * @author yelf
  *
  */
-public class HibernateDemo {
+public class HibernateDemo1 {
     @Test
     /**
      * 准备数据

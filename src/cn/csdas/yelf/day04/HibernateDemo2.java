@@ -135,13 +135,16 @@ public class HibernateDemo2 {
      * 离线条件查询
      */
     public void demo6(){
-        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Customer.class);
-        detachedCriteria.add(Restrictions.like("cust_name", "李%"));
+        //web层执行，用于提前拼接SQL查询条件，直接传DetachedCriteria对象到dao层执行
+        DetachedCriteria dc = DetachedCriteria.forClass(Customer.class);
+        dc.add(Restrictions.like("cust_name", "林%"));
 
+        /*******************************************************/
+        //dao层
         Session session = HibernateUtils.getCurrentSession();
         Transaction transaction = session.beginTransaction();
 
-        Criteria criteria = detachedCriteria.getExecutableCriteria(session);
+        Criteria criteria = dc.getExecutableCriteria(session);
         List<Customer> list = criteria.list();
         for (Customer customer : list) {
             System.out.println(customer);
