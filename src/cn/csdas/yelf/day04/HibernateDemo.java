@@ -8,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,7 +28,7 @@ public class HibernateDemo {
         Transaction transaction = currentSession.beginTransaction();
 
         Customer customer = new Customer();
-        customer.setCust_name("王菁");
+        customer.setCust_name("zhangsan");
 
         for (int i = 0;i<10;i++){
             LinkMan linkMan = new LinkMan();
@@ -137,4 +139,36 @@ public class HibernateDemo {
         }
         tx.commit();
     }
+
+
+    @Test
+    /**
+     * 投影查询
+     */
+    public void demo6(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        //单个属性
+        /*Query query = session.createQuery("select c.cust_name from Customer c" );
+        List<Object> list = query.list();
+        for (Object o : list) {
+            System.out.println(o);
+        }*/
+        //多个属性
+        /*Query query = session.createQuery("select c.cust_id,c.cust_name from Customer c");
+        List<Object[]> list = query.list();
+        for (Object[] objects : list) {
+            System.out.println(Arrays.toString(objects));
+        }*/
+
+        //查询多个属性，封装到对象中(POJO类中要有对应属性的构造方法，否则会报错)
+        Query query = session.createQuery("select new Customer(cust_name,cust_source) from Customer");
+        List<Customer> list = query.list();
+        for (Customer customer : list) {
+            System.out.println(customer);
+        }
+        transaction.commit();
+    }
+
 }

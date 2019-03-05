@@ -18,6 +18,16 @@ public class Customer {
     //放置多的一方的集合，Hibernate默认使用的是Set集合
     private Set<LinkMan> linkMans = new HashSet<LinkMan>();
 
+    public Customer(){
+
+    }
+
+    public Customer(String cust_name,String cust_source){
+        this.cust_name = cust_name;
+        this.cust_source = cust_source;
+    }
+
+
     public Integer getCust_id() {
         return cust_id;
     }
