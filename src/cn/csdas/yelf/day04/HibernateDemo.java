@@ -28,7 +28,8 @@ public class HibernateDemo {
         Transaction transaction = currentSession.beginTransaction();
 
         Customer customer = new Customer();
-        customer.setCust_name("zhangsan");
+        customer.setCust_name("叶浪峰");
+        customer.setCust_level("4");
 
         for (int i = 0;i<10;i++){
             LinkMan linkMan = new LinkMan();
@@ -171,4 +172,47 @@ public class HibernateDemo {
         transaction.commit();
     }
 
+    @Test
+    /**
+     *分页查询
+     */
+    public void demo7(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("from Customer");
+        //分页查询设置
+        query.setFirstResult(3);
+        query.setMaxResults(3);
+        List<Customer> list = query.list();
+
+        for (Customer customer : list) {
+            System.out.println(customer);
+        }
+
+        transaction.commit();
+    }
+
+    @Test
+    /**
+     * 分组统计查询
+     */
+    public void demo8(){
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        //聚合函数的使用：count(),max(),min(),avg(),sum()
+        //返回结果为唯一值，用uniqueResult()，返回集合用list()
+        Object object = session.createQuery("select count(*) from Customer").uniqueResult();
+        System.out.println(object);
+
+        //分组统计
+        Query query = session.createQuery("select cust_level,count(*) from Customer group by cust_level");
+        List<Object[]> list = query.list();
+        for (Object[] objects : list) {
+            System.out.println(Arrays.toString(objects));
+        }
+
+        transaction.commit();
+    }
 }
