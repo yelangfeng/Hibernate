@@ -10,6 +10,10 @@ import org.junit.Test;
 
 import java.util.List;
 
+/**
+ * 延迟加载lazy（类、关联级别）和抓取策略fetch
+ * @author yelf
+ */
 public class HibernateDemo4 {
     @Test
     /**
