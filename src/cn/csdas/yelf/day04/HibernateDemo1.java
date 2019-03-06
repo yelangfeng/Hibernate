@@ -169,6 +169,7 @@ public class HibernateDemo1 {
         for (Customer customer : list) {
             System.out.println(customer);
         }
+
         transaction.commit();
     }
 
