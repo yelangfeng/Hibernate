@@ -27,6 +27,7 @@ public class HibernateDemo3 {
 		}*/
 
         SQLQuery sqlQuery = session.createSQLQuery("select * from cst_linkman");
+
         //添加实体，查询的数据往实体内封装
         sqlQuery.addEntity(LinkMan.class);
         List<LinkMan> list = sqlQuery.list();
