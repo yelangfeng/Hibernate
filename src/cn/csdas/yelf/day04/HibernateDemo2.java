@@ -151,5 +151,6 @@ public class HibernateDemo2 {
         }
         transaction.commit();
     }
+
 }
 
