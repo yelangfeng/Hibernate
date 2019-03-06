@@ -1,6 +1,7 @@
 package cn.csdas.yelf.day04;
 
 import cn.csdas.yelf.domain.Customer;
+import cn.csdas.yelf.domain.LinkMan;
 import cn.csdas.yelf.utils.HibernateUtils;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -25,11 +26,11 @@ public class HibernateDemo3 {
 			System.out.println(Arrays.toString(objects));
 		}*/
 
-        SQLQuery sqlQuery = session.createSQLQuery("select * from cst_customer");
-        sqlQuery.addEntity(Customer.class);
-        List<Customer> list = sqlQuery.list();
-        for (Customer customer : list) {
-            System.out.println(customer);
+        SQLQuery sqlQuery = session.createSQLQuery("select * from cst_linkman");
+        sqlQuery.addEntity(LinkMan.class);
+        List<LinkMan> list = sqlQuery.list();
+        for (LinkMan linkMan : list) {
+            System.out.println(linkMan);
         }
         tx.commit();
     }

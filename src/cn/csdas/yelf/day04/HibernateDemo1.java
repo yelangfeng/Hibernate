@@ -28,7 +28,7 @@ public class HibernateDemo1 {
         Transaction transaction = currentSession.beginTransaction();
 
         Customer customer = new Customer();
-        customer.setCust_name("林志文");
+        customer.setCust_name("石桂松");
         customer.setCust_level("4");
 
         for (int i = 0;i<10;i++){
